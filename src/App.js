@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+
+import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@mui/material/styles';
 import './App.scss';
+
+// == VIEWS
+import Home from './views/Home';
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      light: '#E835E0',
+      main: '#9303D7',
+    },
+    secondary: {
+      main: '#4A3CE9'
+    }
+  },
+  typography: {
+
+  }
+});
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Home />
+      </div>
+    </ThemeProvider>
   );
 }
 
