@@ -12,16 +12,16 @@ const Header = () => {
           justifyContent: 'space-between'
         }}>
           <Box sx={{
-            justifyContent: 'column'
+            flexDirection: 'column'
           }}>
-            <Typography component="h1" sx={{ flexGrow: 1, color: 'primary.main' }}>
+            <Typography component="h1" variant="h5" sx={{ flexGrow: 1, color: 'primary.main' }}>
               Math.Ceil()
             </Typography>
             <Typography component="h2" sx={{ flexGrow: 1, color: 'secondary.main' }}>
               Blog
             </Typography>
           </Box>
-          <MenuIcon sx={{color: 'secondary.main'}}/>
+          <MenuIcon sx={{ color: 'secondary.main' }}/>
         </Toolbar>
       </AppBar>
     </Box>
