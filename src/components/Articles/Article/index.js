@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Card, CardContent, Typography, Paper } from '@mui/material';
 
 // == STYLES
-import './Article.scss';
+import './article.scss';
 
 
 

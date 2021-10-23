@@ -6,6 +6,11 @@ import './App.scss';
 // == VIEWS
 import Home from './views/Home';
 
+// == COMPONENTS 
+import Header from './components/Header';
+import Footer from './components/Footer'
+
+// == THEME
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -17,10 +22,11 @@ const theme = createTheme({
       main: '#4A3CE9'
     },
     text: {
-      secondary: '#EEEEEE'
+      secondary: '#EEEEEE',
+      black: '#060606'
     },
     background: {
-      medium: '#272727'
+      medium: '#272727',
     }
   },
   typography: {
@@ -32,11 +38,14 @@ const theme = createTheme({
 });
 
 
+// == APPLICATION
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
+        <Header />
         <Home />
+        <Footer />
       </div>
     </ThemeProvider>
   );
