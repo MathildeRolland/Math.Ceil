@@ -9,16 +9,18 @@ import Article from './Article';
 import customTheme from '../../styles/theme';
 
 // STYLES
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
     return ({
         container: {
             padding: '0 3em',
-            display: 'flex',
             flexDirection: 'column',
             [customTheme.breakpoints.up('tablet')]: {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap'
+            },
+            [customTheme.breakpoints.up('desktop')]: {
+                maxWidth: '1000px'
             }
         }
     })
@@ -33,9 +35,8 @@ const Articles = () => {
     return (
         <Container
             className={styles.container}
-            maxWidth="lg"
             disableGutters={true}
-            sx={{padding: '0 3em', display: 'flex'}}
+            sx={{display: 'flex'}}
         >
             <Article />
             <Article />

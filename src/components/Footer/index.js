@@ -10,16 +10,16 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 // == STYLES
 const useStyles = makeStyles((theme) => ({
     footer: {
-        marginTop: '3.5em'
+        margin: '1rem 0',
     },
     container: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
+        justifyContent: 'center',
         alignItems: 'center'
     },
     icon: {
-        margin: '.3em .5em 0 .5em',
-        fontSize: '1.5em'
+        margin: '0 .2em',
     }
 }))
 
@@ -32,14 +32,14 @@ const Footer = () => {
         <Container className={styles.footer} fixed>
             <Box className={styles.container}>
                 <Typography fontSize="1.5rem" color="secondary.main">
-                    Mathilde ROLLAND © | Tous droits réservés.
+                    Mathilde ROLLAND © | Tous droits réservés. | 
                 </Typography>
                 <Box>
                     <Link className="footer__link" href="https://www.linkedin.com/in/mathilde-rolland" >
-                        <LinkedInIcon className={styles.icon} sx={{ color: 'text.black', '&:hover': {color: 'primary.main'}, transition: 'color .5s' }} />
+                        <LinkedInIcon fontSize="small" className={styles.icon} sx={{ color: 'text.black', '&:hover': {color: 'primary.main'}, transition: 'color .5s' }} />
                     </Link>
                     <Link className="footer__link" href="https://github.com/MathildeRolland">
-                        <GitHubIcon className={styles.icon} sx={{ color: 'text.black', '&:hover': {color: 'primary.main'}, transition: 'color .5s' }} />
+                        <GitHubIcon fontSize="small" className={styles.icon} sx={{ color: 'text.black', '&:hover': {color: 'primary.main'}, transition: 'color .5s' }} />
                     </Link>
                 </Box>
             </Box>

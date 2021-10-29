@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => ({
   container: {
     [customTheme.breakpoints.up('tablet')]: {
       width: '48%'
+    },
+    [customTheme.breakpoints.up('desktop')]: {
+      width: '30%'
     }
   },
   card: {
