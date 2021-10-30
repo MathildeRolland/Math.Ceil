@@ -3,10 +3,14 @@ import { makeStyles } from '@mui/styles';
 
 // == COMPONENTS
 import { AppBar, Box, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIconButton from '@mui/icons-material/Menu';
+import Navbar from './Navbar';
+
+// == THEME
+import customTheme from '../../styles/theme';
 
 // == STYLES 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   header: {
 
   },
@@ -15,6 +19,17 @@ const useStyles = makeStyles((theme) => ({
   },
   titles: {
     flexDirection: 'column'
+  },
+  burger: {
+    [customTheme.breakpoints.up('tablet')]: {
+      visibility: 'hidden'
+    }
+  },
+  menu: {
+
+  },
+  menuItem: {
+    
   }
 }));
 
@@ -38,13 +53,15 @@ const Header = () => {
               Blog
             </Typography>
           </Box>
-          <MenuIcon sx={{ color: 'secondary.main' }}/>
+          <MenuIconButton className={styles.burger} sx={{ color: 'secondary.main' }}/>
+          <Navbar />
         </Toolbar>
       </AppBar>
 
-      <Menu className="header__menu" open={false} >
-        <MenuItem className="header__menu-item" style={{padding: '0 5em'}}>Tous les articles</MenuItem>
-        <MenuItem className="header__menu-item" style={{padding: '0 5em'}}>Portfolio</MenuItem>
+
+      <Menu className={styles.menu} open={false} >
+        <MenuItem className={styles.menuItem} style={{padding: '0 5em'}}>Tous les articles</MenuItem>
+        <MenuItem className={styles.menuItem} style={{padding: '0 5em'}}>Portfolio</MenuItem>
       </Menu>
 
     </Box>
