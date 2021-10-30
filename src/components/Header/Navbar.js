@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
         }
     },
     link: {
-        padding: '0 2em',
+        padding: '0 2rem 0 7rem',
         fontSize: '2rem',
     }
 }))

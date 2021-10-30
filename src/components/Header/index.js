@@ -8,14 +8,12 @@ import Navbar from './Navbar';
 
 // == THEME
 import customTheme from '../../styles/theme';
+import { useTheme } from '@mui/material/styles';
 
 // == STYLES 
 const useStyles = makeStyles(() => ({
-  header: {
-
-  },
   navbar: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   titles: {
     flexDirection: 'column'
@@ -37,6 +35,7 @@ const useStyles = makeStyles(() => ({
 // -- -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
 const Header = () => {
   const styles = useStyles();
+  const theme = useTheme();
 
 
 
@@ -44,7 +43,7 @@ const Header = () => {
     <Box className={styles.header}>
 
       <AppBar position="static">
-        <Toolbar className={styles.navbar}>
+        <Toolbar className={styles.navbar} sx={{[theme.breakpoints.up('desktop')]: {padding: '0 5rem'}}}>
           <Box className={styles.titles}>
             <Typography component="h1" sx={{ color: 'primary.main', fontSize: 'h1.fontSize' }}>
               Math.Ceil()
