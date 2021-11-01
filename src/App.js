@@ -10,7 +10,7 @@ import './styles/App.scss';
 import Home from './views/Home';
 
 // == COMPONENTS 
-import Header from './components/Header';
+import Header from './containers/Header';
 import Footer from './components/Footer'
 
 // == REDUX

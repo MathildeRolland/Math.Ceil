@@ -32,12 +32,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 
+
+
 // -- -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
-const Header = () => {
+const Header = ({ isMenuOpen, handleMenu }) => {
   const styles = useStyles();
   const theme = useTheme();
 
-
+  const onClick = () => {
+    handleMenu();
+  }
 
   return (
     <Box className={styles.header}>
@@ -52,7 +56,7 @@ const Header = () => {
               Blog
             </Typography>
           </Box>
-          <MenuIconButton className={styles.burger} sx={{ color: 'secondary.main' }}/>
+          <MenuIconButton onClick={onClick} className={styles.burger} sx={{ color: 'secondary.main' }}/>
           <Navbar />
         </Toolbar>
       </AppBar>
