@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@mui/styles';
 
 // == COMPONENTS
-import { AppBar, Box, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import MenuIconButton from '@mui/icons-material/Menu';
 import Navbar from './Navbar';
+import Menu from './Menu';
 
 // == THEME
 import customTheme from '../../styles/theme';
@@ -23,12 +24,6 @@ const useStyles = makeStyles(() => ({
       visibility: 'hidden'
     }
   },
-  menu: {
-
-  },
-  menuItem: {
-    
-  }
 }));
 
 
@@ -39,8 +34,18 @@ const Header = ({ isMenuOpen, handleMenu }) => {
   const styles = useStyles();
   const theme = useTheme();
 
-  const onClick = () => {
-    handleMenu();
+  // == STATE
+  const [ anchorEl, setAnchorEl ] = useState(null);
+
+  const onClick = (event) => {
+    console.log("click open");
+    setAnchorEl(event.currentTarget);
+    // handleMenu();
+  }
+
+  const onClose = () => {
+    console.log("click close");
+    setAnchorEl(null);
   }
 
   return (
@@ -61,12 +66,7 @@ const Header = ({ isMenuOpen, handleMenu }) => {
         </Toolbar>
       </AppBar>
 
-
-      <Menu className={styles.menu} open={false} >
-        <MenuItem className={styles.menuItem} style={{padding: '0 5em'}}>Tous les articles</MenuItem>
-        <MenuItem className={styles.menuItem} style={{padding: '0 5em'}}>Portfolio</MenuItem>
-      </Menu>
-
+      <Menu isMenuOpen={isMenuOpen} anchorEl={anchorEl} onClose={onClose} />
     </Box>
   );
 }

@@ -9,6 +9,7 @@ export const utils = (state = initialState, action) => {
     switch(action.type) {
         case TOGGLE_MENU:
             return {
+                ...state,
                 isMenuOpen: !state.isMenuOpen
             }
         default:

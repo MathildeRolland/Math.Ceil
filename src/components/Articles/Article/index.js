@@ -22,16 +22,16 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     borderWidth: '.5px',
     marginBottom: '2em',
-    boxShadow: '0 0 5px #E835E0'
   }, 
   header: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   date: {
     fontStyle: 'italix',
-    fontWeight: 300
+    fontWeight: 300,
   },
   overview: {
     overflow: 'hidden',
