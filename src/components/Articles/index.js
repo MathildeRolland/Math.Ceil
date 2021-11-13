@@ -9,22 +9,20 @@ import Article from './Article';
 import customTheme from '../../styles/theme';
 
 // STYLES
-const useStyles = makeStyles(() => {
-    return ({
-        container: {
-            padding: '0 3em',
-            flexDirection: 'column',
-            [customTheme.breakpoints.up('tablet')]: {
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap'
-            },
-            [customTheme.breakpoints.up('desktop')]: {
-                maxWidth: '1000px'
-            }
+const useStyles = makeStyles(() => ({
+    container: {
+        padding: '0 3em',
+        flexDirection: 'column',
+        [customTheme.breakpoints.up('tablet')]: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap'
+        },
+        [customTheme.breakpoints.up('desktop')]: {
+            maxWidth: '1000px'
         }
-    })
-});
+    },
+}));
 
 
 
@@ -40,7 +38,7 @@ const Articles = () => {
         >
             <Article />
             <Article />
-            <Article />
+            <Article /> 
         </Container>
     )
 }

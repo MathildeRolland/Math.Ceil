@@ -4,6 +4,9 @@ import { makeStyles } from '@mui/styles';
 // == THEME
 import customTheme from '../../../styles/theme';
 
+// == ROUTER
+import { NavLink } from 'react-router-dom';
+
 // == COMPONENTS
 import { Box, Card, CardContent, Typography, Paper } from '@mui/material';
 
@@ -46,6 +49,9 @@ const useStyles = makeStyles(() => ({
     width: 'max-content',
     alignSelf: 'flex-end',
     fontSize: '.8em'
+  },
+  link: {
+    textDecoration: "none"
   }
 }))
 
@@ -56,6 +62,7 @@ const Article = () => {
 
   return (
       <Box className={styles.container} sx={{ minWidth: 275 }}>
+        <NavLink to="/articles/article" className={styles.link}>
           <Card variant="outlined" className={styles.card} sx={{ backgroundColor: 'background.medium', borderColor: 'primary.main' }}>
             <CardContent>
               <Box className={styles.header}>
@@ -74,6 +81,7 @@ const Article = () => {
               Category
             </Paper>
           </Card>
+        </NavLink>
       </Box>
   );
 }
