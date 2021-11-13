@@ -1,17 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 
-// == COMPONENTS
-import Articles from '../../components/Articles';
-import Quote from '../../components/Quote';
-import { Typography, Box } from '@mui/material';
-
-// THEME
-import customTheme from '../../styles/theme';
+// == COMPONENT
+import { Container, Typography } from '@mui/material';
+import Articles from '../components/Articles';
 
 // == STYLES
-const useStyles = makeStyles(() => ({
-    home: {
+import customTheme from '../styles/theme';
+
+
+const useStyles = makeStyles({
+    container : {
         flexGrow: 1,
         display: 'flex',
         flexDirection: 'column',
@@ -24,24 +23,25 @@ const useStyles = makeStyles(() => ({
             padding: '2em 0',
         }
     }
-}))
+})
 
 
-// -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
-const Home = () => {
+const ArticlesPage = () => {
     const styles = useStyles();
 
     return (
-        <Box className={styles.home}>
-            <Quote />
+        <Container
+            className={styles.container}
+            disableGutters={true}
+            sx={{display: 'flex'}}
+        >   
             <Typography className={styles.title} component="h2" variant="h4" sx={{color: 'text.secondary'}}>
-                Derniers articles
+                Articles
             </Typography>
             <Articles />
-        </Box>
-
+        </Container>
     )
 }
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- //
 
-export default Home;
+
+export default ArticlesPage;

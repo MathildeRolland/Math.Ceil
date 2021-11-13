@@ -1,5 +1,8 @@
 import React from 'react'
 
+// == ROUTER
+import { NavLink } from 'react-router-dom';
+
 // == COMPONENTS
 import { Box, Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
@@ -26,6 +29,8 @@ export default function Navbar() {
     return (
         <Box className={styles.nav}>
             <Link
+                component={NavLink}
+                to="/articles"
                 className={styles.link}
                 href="#"
                 color='text.light'
@@ -34,6 +39,9 @@ export default function Navbar() {
                 Articles
             </Link>
             <Link
+                component={NavLink}
+                to='https://www.google.com/'
+
                 className={styles.link}
                 href="#"
                 color='text.light'

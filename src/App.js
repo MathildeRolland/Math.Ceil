@@ -1,5 +1,12 @@
 import { ThemeProvider } from '@mui/material/styles';
 
+// == ROUTER
+import {
+  BrowserRouter as Router,
+  Routes, 
+  Route,
+} from 'react-router-dom';
+
 // == THEME
 import theme from './styles/theme';
 
@@ -8,6 +15,8 @@ import './styles/App.scss';
 
 // == VIEWS
 import Home from './views/Home';
+import Article from './views/Article';
+import ArticlesPage from './views/ArticlesPage';
 
 // == COMPONENTS 
 import Header from './containers/Header';
@@ -21,15 +30,21 @@ import { Provider } from 'react-redux';
 // == APPLICATION
 function App() {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <div className="App">
-          <Header />
-          <Home />
-          <Footer />
-        </div>
-      </ThemeProvider>
-    </Provider>
+    <Router>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <div className="App">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="/articles" element={<ArticlesPage />} exact />
+              <Route path="/article" element={<Article />} />
+            </Routes>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </Provider>
+    </Router>
   );
 }
 
