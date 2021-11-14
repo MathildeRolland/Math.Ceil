@@ -1,8 +1,8 @@
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 
 // == ROUTER
 import {
-  BrowserRouter as Router,
   Routes, 
   Route,
 } from 'react-router-dom';
@@ -15,36 +15,42 @@ import './styles/App.scss';
 
 // == VIEWS
 import Home from './views/Home';
-import Article from './views/Article';
+import Article from './containers/Article';
 import ArticlesPage from './views/ArticlesPage';
 
 // == COMPONENTS 
 import Header from './containers/Header';
 import Footer from './components/Footer'
 
-// == REDUX
-import { store } from './redux/store';
-import { Provider } from 'react-redux';
+// == DATAS
+import articles from './datas';
+
 
 
 // == APPLICATION
-function App() {
+function App({ storeAllArticles }) {
+
+  // Store all articles in the state
+  useEffect(() => {
+    storeAllArticles(articles)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Router>
-      <Provider store={store}>
+    <>
         <ThemeProvider theme={theme}>
           <div className="App">
             <Header />
             <Routes>
               <Route path="/" element={<Home />} exact />
               <Route path="/articles" element={<ArticlesPage />} exact />
-              <Route path="/articles/article" element={<Article />} />
+              <Route path="/articles/:id" element={<Article />} />
             </Routes>
             <Footer />
           </div>
         </ThemeProvider>
-      </Provider>
-    </Router>
+    </>
   );
 }
 

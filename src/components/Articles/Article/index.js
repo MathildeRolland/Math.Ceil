@@ -57,28 +57,28 @@ const useStyles = makeStyles(() => ({
 
 
 // -- -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
-const Article = () => {
+const Article = ({ article }) => {
   const styles = useStyles();
 
   return (
       <Box className={styles.container} sx={{ minWidth: 275 }}>
-        <NavLink to="/articles/article" className={styles.link}>
+        <NavLink to={`/articles/${article.id}`} className={styles.link}>
           <Card variant="outlined" className={styles.card} sx={{ backgroundColor: 'background.medium', borderColor: 'primary.main' }}>
             <CardContent>
               <Box className={styles.header}>
                   <Typography component="h3" variant="h6" color="text.primary" gutterBottom>
-                      Title of the article
+                      {article.title}
                   </Typography>
                   <Typography className={styles.date} component="date" sx={{ mb: 1.5, fontSize: '.9em' }} color="text.secondary">
-                      07 Juillet 1988
+                      {article.date}
                   </Typography>
               </Box>
               <Typography variant="body2" className={styles.overview} sx={{ fontWeight: 'fontWeightLight', marginTop: '1.5em' }}>
-              Lorem ipsum dolor sit amet blabla trucmuche Lorem ipsum dolor sit amet blabla trucmuche Lorem ipsum dolor sit amet blabla trucmuche.<br/>Lorem ipsum dolor sit amet blabla trucmuche Lorem ipsum dolor sit amet blabla trucmuche Lorem ipsum dolor sit amet blabla trucmucheLorem ipsum dolor sit amet blabla trucmuche Lorem ipsum dolor sit amet blabla trucmucheLorem ipsum dolor sit amet blabla trucmuche.
+                {article.content}
               </Typography>
             </CardContent>
             <Paper className={styles.category}>
-              Category
+              {article.category}
             </Paper>
           </Card>
         </NavLink>
