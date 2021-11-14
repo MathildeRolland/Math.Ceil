@@ -8,6 +8,9 @@ import Article from './Article';
 // == THEME
 import customTheme from '../../styles/theme';
 
+// == DATAS
+import articles from '../../datas';
+
 // STYLES
 const useStyles = makeStyles(() => ({
     container: {
@@ -36,9 +39,9 @@ const Articles = () => {
             disableGutters={true}
             sx={{display: 'flex'}}
         >
-            <Article />
-            <Article />
-            <Article /> 
+            {
+                articles.map((article) => <Article key={article.id} article={article} />)
+            }
         </Container>
     )
 }
