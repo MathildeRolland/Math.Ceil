@@ -1,8 +1,10 @@
-import { LOAD_ALL_ARTICLES } from '../actionTypes';
+import { FETCH_ARTICLES, STORE_ARTICLES } from '../actionTypes';
 
-export const loadAllArticles = (articles) => ({
-    type: LOAD_ALL_ARTICLES,
-    payload: {
-        articles
-    }
-})
+export const fetchArticles = () => ({
+	type: FETCH_ARTICLES,
+});
+
+export const storeArticles = (payload) => ({
+	type: STORE_ARTICLES,
+	payload,
+});

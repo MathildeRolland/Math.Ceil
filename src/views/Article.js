@@ -1,16 +1,10 @@
 import React from 'react';
-
-// == COMPONENTS
+import { useParams } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import { Container, Typography } from '@mui/material';
 
-// == ROUTER
-import { useParams } from 'react-router-dom';
-
-// == SELECTORS
 import { findArticleById } from '../redux/selectors';
-
-// == STYLES
+import { sanitizeData } from '../utils/articles-utils';
 import customTheme from '../styles/theme';
 
 const useStyles = makeStyles({
@@ -46,7 +40,6 @@ export default function Article({ articles }) {
 	const styles = useStyles();
 	const { id } = useParams();
 
-	// Retrieve the current article
 	const currentArticle = findArticleById(articles, id);
 
 	return (
@@ -63,7 +56,7 @@ export default function Article({ articles }) {
 			</Typography>
 			<div
 				className={styles.paragraph}
-				dangerouslySetInnerHTML={{ __html: currentArticle.content }}
+				dangerouslySetInnerHTML={sanitizeData(currentArticle.content)}
 			/>
 		</Container>
 	);

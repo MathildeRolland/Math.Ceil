@@ -1,16 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-
-// == THEME
-import customTheme from '../../../styles/theme';
-
-// == ROUTER
 import { NavLink } from 'react-router-dom';
 
-// == COMPONENTS
 import { Box, Card, CardContent, Typography, Paper } from '@mui/material';
 
-// == STYLES
+import { sanitizeData } from '../../../utils/articles-utils';
+import customTheme from '../../../styles/theme';
+
 const useStyles = makeStyles(() => ({
 	container: {
 		[customTheme.breakpoints.up('tablet')]: {
@@ -55,7 +51,6 @@ const useStyles = makeStyles(() => ({
 	},
 }));
 
-// -- -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
 const Article = ({ article }) => {
 	const styles = useStyles();
 
@@ -93,9 +88,8 @@ const Article = ({ article }) => {
 							variant='body2'
 							className={styles.overview}
 							sx={{ fontWeight: 'fontWeightLight', marginTop: '1.5em' }}
-						>
-							{article.content}
-						</Typography>
+							dangerouslySetInnerHTML={sanitizeData(article.content)}
+						/>
 					</CardContent>
 					<Paper className={styles.category}>{article.category}</Paper>
 				</Card>

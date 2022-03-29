@@ -1,18 +1,18 @@
-import { LOAD_ALL_ARTICLES } from '../actions/actionTypes'
+import { STORE_ARTICLES } from '../actions/actionTypes';
 
 const initialState = {
-    articles: [],
+	articles: [],
 };
 
 export const articles = (state = initialState, action) => {
-    switch(action.type) {
-        case LOAD_ALL_ARTICLES: {
-            return {
-                ...state,
-                articles: action.payload.articles
-            }
-        }
-        default:
-            return state;
-    }
-}
+	switch (action.type) {
+		case STORE_ARTICLES: {
+			return {
+				...state,
+				articles: action.payload,
+			};
+		}
+		default:
+			return state;
+	}
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 
 // == COMPONENTS
-import Articles from '../components/Articles';
+import Articles from '../containers/Articles';
 import Quote from '../components/Quote';
 import { Typography, Box } from '@mui/material';
 

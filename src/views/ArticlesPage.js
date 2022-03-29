@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 
 // == COMPONENT
 import { Container, Typography } from '@mui/material';
-import Articles from '../components/Articles';
+import Articles from '../containers/Articles';
 
 // == STYLES
 import customTheme from '../styles/theme';
