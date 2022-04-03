@@ -19,25 +19,31 @@ const useStyles = makeStyles(() => ({
 	card: {
 		display: 'flex',
 		flexDirection: 'column',
+		justifyContent: 'space-between',
 		borderWidth: '.5px',
 		marginBottom: '2em',
+		height: '15em',
+		[customTheme.breakpoints.up('tablet')]: {
+			height: '20rem',
+		},
 	},
 	header: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
+		padding: 8,
+		backgroundColor: customTheme.palette.background.dark,
 	},
 	date: {
-		fontStyle: 'italix',
+		fontStyle: 'italic',
 		fontWeight: 300,
 	},
 	overview: {
-		overflow: 'hidden',
-		textOverflow: 'ellipsis',
-		display: '-webkit-box',
-		WebkitLineClamp: 3,
-		WebkitBoxOrient: 'vertical',
+		padding: '1em',
+		display: 'flex',
+		flexDirection: 'column',
+		flexGrow: 1,
 	},
 	category: {
 		padding: '.3em 1em',
@@ -65,13 +71,18 @@ const Article = ({ article }) => {
 						borderColor: 'primary.main',
 					}}
 				>
-					<CardContent>
+					<CardContent
+						sx={{
+							padding: 0,
+						}}
+					>
 						<Box className={styles.header}>
 							<Typography
 								component='h3'
 								variant='h3'
 								color='text.primary'
 								gutterBottom
+								sx={{ marginBottom: 0 }}
 							>
 								{article.title}
 							</Typography>
@@ -87,11 +98,11 @@ const Article = ({ article }) => {
 						<Typography
 							variant='body2'
 							className={styles.overview}
-							sx={{ fontWeight: 'fontWeightLight', marginTop: '1.5em' }}
-							dangerouslySetInnerHTML={sanitizeData(article.content)}
+							sx={{ fontWeight: 'fontWeightLight', marginTop: '.5em' }}
+							dangerouslySetInnerHTML={sanitizeData(article.summary)}
 						/>
 					</CardContent>
-					<Paper className={styles.category}>{article.category}</Paper>
+					<Paper className={styles.category}>Tech</Paper>
 				</Card>
 			</NavLink>
 		</Box>
