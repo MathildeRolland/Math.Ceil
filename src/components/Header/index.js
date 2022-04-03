@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
-// == COMPONENTS
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import MenuIconButton from '@mui/icons-material/Menu';
 import Navbar from './Navbar';
 import Menu from './Menu';
 
-// == THEME
 import customTheme from '../../styles/theme';
 import { useTheme } from '@mui/material/styles';
+import logo from '../../assets/images/logo.svg';
 
-// == STYLES
 const useStyles = makeStyles(() => ({
 	navbar: {
 		justifyContent: 'space-between',
 	},
 	titles: {
-		flexDirection: 'column',
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		[customTheme.breakpoints.up('tablet')]: {
+			flexDirection: 'column',
+			alignItems: 'flex-start',
+		},
 	},
 	burger: {
 		[customTheme.breakpoints.up('tablet')]: {
 			visibility: 'hidden',
 		},
 	},
+	logo: {
+		width: '100%',
+		height: '100%',
+	},
+	logoLink: {
+		width: '10%',
+		height: 'auto',
+		marginRight: '1em',
+	},
 }));
 
-// -- -- -- -- -- -- -- -- -- -- COMPONENT -- -- -- -- -- -- -- -- -- -- //
 const Header = ({ isMenuOpen, handleMenu }) => {
 	const styles = useStyles();
 	const theme = useTheme();
 
-	// == STATE
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	const onClick = (event) => {
@@ -51,24 +63,27 @@ const Header = ({ isMenuOpen, handleMenu }) => {
 					sx={{ [theme.breakpoints.up('desktop')]: { padding: '0 5rem' } }}
 				>
 					<Box className={styles.titles}>
-						<Typography
-							component='h1'
-							sx={{ color: 'primary.main', fontSize: 'h1.fontSize' }}
-						>
-							Math.Ceil()
-						</Typography>
+						<NavLink to='/' className={styles.logoLink}>
+							<img src={logo} alt='logo' className={styles.logo} />
+						</NavLink>
 						<Typography
 							component='h2'
 							variant='h3'
-							sx={{ color: 'secondary.main' }}
+							sx={{
+								color: 'text.light',
+								fontSize: '1.6rem',
+								fontStyle: 'italic',
+								fontWeight: 'lighter',
+								marginBottom: '.5rem',
+							}}
 						>
-							Blog
+							Histoire de Tech' crire
 						</Typography>
 					</Box>
 					<MenuIconButton
 						onClick={onClick}
 						className={styles.burger}
-						sx={{ color: 'secondary.main' }}
+						sx={{ color: 'secondary.main', fontSize: '2.5em' }}
 					/>
 					<Navbar />
 				</Toolbar>
@@ -78,6 +93,5 @@ const Header = ({ isMenuOpen, handleMenu }) => {
 		</Box>
 	);
 };
-// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- //
 
 export default Header;
